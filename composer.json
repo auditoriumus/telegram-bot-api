@@ -1,0 +1,23 @@
+{
+    "name": "auditoriumus/telegram-bot-api",
+    "description": "telegram bot api client for php",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Urij Sadyev",
+            "email": "um_2005@mail.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Auditoriumus\\TelegramBotApi\\": "src/"
+        },
+        "files": [
+            "src/functions_include.php"
+        ]
+    }
+}
