@@ -31,10 +31,10 @@ class TelegramButtonsApi
     {
         $keyboard = [$buttonsArray];
 
-        sendResponse($this->client, $this->uri,'sendMessage', [
+        sendResponse($this->client, $this->uri, 'sendMessage', [
             'chat_id' => $chatId,
             'text' => $message,
-            'reply_markup' => json_encode(['inline_keyboard' => $keyboard])
+            'reply_markup' => json_encode(['inline_keyboard' => $keyboard]),
         ]);
     }
 
@@ -46,12 +46,10 @@ class TelegramButtonsApi
      */
     public function addKeyboard(int $chatId, array $buttonsArray, string $message): void
     {
-        $keyboard = [$buttonsArray];
-
-        sendResponse($this->client, $this->uri,'sendMessage', [
+        sendResponse($this->client, $this->uri, 'sendMessage', [
             'chat_id' => $chatId,
             'text' => $message,
-            'reply_markup' => json_encode(['keyboard' => $keyboard])
+            'reply_markup' => json_encode(['keyboard' => $buttonsArray, 'resize_keyboard' => true, 'one_time_keyboard' => true], JSON_UNESCAPED_UNICODE),
         ]);
     }
 
@@ -63,10 +61,10 @@ class TelegramButtonsApi
      */
     public function removeKeyboard(int $chatId, string $message): void
     {
-        sendResponse($this->client, $this->uri,'sendMessage', [
+        sendResponse($this->client, $this->uri, 'sendMessage', [
             'chat_id' => $chatId,
             'text' => $message,
-            'reply_markup' => json_encode(['remove_keyboard' => true])
+            'reply_markup' => json_encode(['remove_keyboard' => true]),
         ]);
     }
 
