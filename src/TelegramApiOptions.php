@@ -38,7 +38,7 @@ class TelegramApiOptions
         return sendResponse($this->client, $this->uri, 'sendMessage', [
             'chat_id' => $chatId,
             'text' => $message,
-        ], true);
+        ]);
     }
 
     public function sendHtmlMessage(int $chatId, string $message): bool
@@ -47,7 +47,7 @@ class TelegramApiOptions
             'chat_id' => $chatId,
             'text' => $message,
             'parse_mode' => 'HTML'
-        ], true);
+        ]);
     }
 
 
@@ -57,7 +57,7 @@ class TelegramApiOptions
             'chat_id' => $chatId,
             'photo' => $photo,
             'parse_mode' => 'HTML'
-        ], true);
+        ]);
     }
 
     public function sendPhotoWithCaption(int $chatId, string $photo, string $message): bool
@@ -67,7 +67,7 @@ class TelegramApiOptions
             'photo' => $photo,
             'caption' => $message,
             'parse_mode' => 'HTML'
-        ], true);
+        ]);
     }
 
     public function sendVoice(int $chatId, string $voice): bool
@@ -75,7 +75,7 @@ class TelegramApiOptions
         return sendResponse($this->client, $this->uri, 'sendVoice', [
             'chat_id' => $chatId,
             'voice' => $voice,
-        ], true);
+        ]);
     }
 
     public function sendDocument(int $chatId, string $document): bool
@@ -83,7 +83,7 @@ class TelegramApiOptions
         return sendResponse($this->client, $this->uri, 'sendDocument', [
             'chat_id' => $chatId,
             'document' => $document,
-        ], true);
+        ]);
     }
 
     public function sendVideo(int $chatId, string $video): bool
@@ -91,7 +91,7 @@ class TelegramApiOptions
         return sendResponse($this->client, $this->uri, 'sendVideo', [
             'chat_id' => $chatId,
             'video' => $video,
-        ], true);
+        ]);
     }
 
 
@@ -100,7 +100,7 @@ class TelegramApiOptions
         return sendResponse($this->client, $this->uri, 'sendVideoNote', [
             'chat_id' => $chatId,
             'video_note' => $videoNote,
-        ], true);
+        ]);
     }
 
 
@@ -125,7 +125,7 @@ class TelegramApiOptions
             'options' => json_encode($options),
             'is_anonymous' => $is_anonymous,
             'reply_markup' => $reply_markup
-        ], true);
+        ]);
     }
 
 
@@ -140,7 +140,7 @@ class TelegramApiOptions
         return sendResponse($this->client, $this->uri, 'sendMediaGroup', [
             'chat_id' => $chatId,
             'media' => json_encode($media),
-        ], true);
+        ]);
     }
 
 }

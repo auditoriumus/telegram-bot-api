@@ -29,12 +29,10 @@ class TelegramButtonsApi
      */
     public function addInlineButton(int $chatId, array $buttonsArray, string $message): void
     {
-        $keyboard = [$buttonsArray];
-
         sendResponse($this->client, $this->uri, 'sendMessage', [
             'chat_id' => $chatId,
             'text' => $message,
-            'reply_markup' => json_encode(['inline_keyboard' => $keyboard]),
+            'reply_markup' => json_encode(['inline_keyboard' => $buttonsArray]),
         ]);
     }
 
